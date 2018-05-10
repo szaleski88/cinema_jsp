@@ -1,12 +1,29 @@
-<!DOCTYPE html>
-<html lang="en">
+<%@ page import="com.sda.cinema.model.Uzytkownik" %>
+
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<html>
 <head>
     <meta charset="UTF-8">
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Your file css -->
-    <link rel="stylesheet" href="css/cinema_style.css"/>
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/WEB-INF/css/cinema_style.css" type="text/css"/>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+
+
+        body {
+            background:#000000;
+            font-size:200%;
+            line-height:1em;
+            color:#858585;
+        }
+    </style>
+
     <title>JAKAS NAZWA KINA</title>
 </head>
 <body>
@@ -14,16 +31,16 @@
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="cinema_main.html"><span class="cinema_name">(super nazwa)</span></a>
+            <a class="navbar-brand" href="${pageContext.request.contextPath}/WEB-INF/cinema_main.html"><span class="cinema_name">(super nazwa)</span></a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="cinema_main.html">Strona Główna</a></li>
+            <li class="active"><a href="${pageContext.request.contextPath}/WEB-INF/cinema_main.html">Strona Główna</a></li>
             <!--<li><a href="repertuar.html">Repertuar</a></li>-->
             <!--<li><a href="kontakt.html">Kontakt</a></li>-->
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="konto_uzytkownika.html"><span class="glyphicon glyphicon-user"></span> ${Uzytkownik.imie}
-                ${Uzytkownik.nazwisko}</a></li>
+            <li><a href="konto"><span class="glyphicon glyphicon-user"></span> <strong>${uzytkownik.login}</strong>
+                </a></li>
         </ul>
     </div>
 </nav>
@@ -65,7 +82,7 @@
                                             </strong>
                                         </td>
                                         <td class="text-primary">
-                                            ${Uzytkownik.imie}
+                                            ${uzytkownik.imie}
                                         </td>
                                     </tr>
                                     <tr>
@@ -76,7 +93,7 @@
                                             </strong>
                                         </td>
                                         <td class="text-primary">
-                                            ${Uzytkownik.nazwisko}
+                                            ${uzytkownik.nazwisko}
                                         </td>
                                     </tr>
                                     <tr>
@@ -87,7 +104,7 @@
                                             </strong>
                                         </td>
                                         <td class="text-primary">
-                                            ${Uzytkownik.email}
+                                            ${uzytkownik.email}
                                         </td>
                                     </tr>
                                     <tr>
@@ -98,7 +115,7 @@
                                             </strong>
                                         </td>
                                         <td class="text-primary">
-                                            ${Uzytkownik.dataUtworzenia}
+                                            ${uzytkownik.dataUtworzenia}
                                         </td>
                                     </tr>
                                     <tr>
@@ -109,7 +126,7 @@
                                             </strong>
                                         </td>
                                         <td class="text-primary">
-                                            ${Uzytkownik.iloscPunktow}
+                                            ${uzytkownik.iloscPunktow}
                                         </td>
                                     </tr>
                                     </tbody>
@@ -123,7 +140,6 @@
         </div>
     </div>
 </div>
-
 
 </body>
 </html>
