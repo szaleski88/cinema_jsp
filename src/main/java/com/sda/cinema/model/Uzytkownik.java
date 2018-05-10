@@ -1,4 +1,4 @@
-package com.sda.model;
+package com.sda.cinema.model;
 
 import lombok.*;
 
@@ -14,4 +14,7 @@ public final class Uzytkownik {
     private String imie;
     private String nazwisko;
 
+    private String email;
+    private String dataUtworzenia;
+    private String iloscPunktow;
 }
