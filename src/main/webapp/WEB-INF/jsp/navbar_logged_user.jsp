@@ -15,7 +15,7 @@
             <li class="active"><a href="${pageContext.request.contextPath}/WEB-INF/cinema_main.html">Strona Główna</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="konto"><span class="glyphicon glyphicon-user"></span> <strong>${uzytkownik.login}</strong>
+            <li><a href="konto"><span class="glyphicon glyphicon-user"></span> <strong>${user.login}</strong>
             </a></li>
         </ul>
     </div>

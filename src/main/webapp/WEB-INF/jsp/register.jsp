@@ -20,16 +20,16 @@
 
 <h1 align="center">Rejestracja </h1>
 
-<form>
+<form name="registerForm">
     <div class="container-fluid" id="loginContainer">
         <h2>Podaj swoje dane</h2>
 
         <div class="input-group">
-            <input type="text" class="form-control" name="imie" placeholder="Imię">
+            <input type="text" class="form-control" name="firstName" placeholder="Imię">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
         </div>
         <div class="input-group">
-            <input type="text" class="form-control" name="nazwisko" placeholder="Nazwisko">
+            <input type="text" class="form-control" name="lastName" placeholder="Nazwisko">
             <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
         </div>
         <div class="input-group">
@@ -45,7 +45,7 @@
             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
         </div>
         <div class="input-group">
-            <input type="password" class="form-control" name="repeated-password" placeholder="Powtórz Hasło">
+            <input type="password" class="form-control" name="repeatedPassword" placeholder="Powtórz Hasło">
             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
         </div>
         <button id="registerbutton" type="submit">Zarejestruj</button>

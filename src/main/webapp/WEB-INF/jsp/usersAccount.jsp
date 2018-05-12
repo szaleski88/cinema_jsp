@@ -1,4 +1,4 @@
-<%@ page import="com.sda.cinema.model.Uzytkownik" %>
+<%@ page import="com.sda.cinema.model.User" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -65,7 +65,7 @@
                                             </strong>
                                         </td>
                                         <td class="text-primary">
-                                            ${uzytkownik.imie}
+                                            ${user.imie}
                                         </td>
                                     </tr>
                                     <tr>
@@ -76,7 +76,7 @@
                                             </strong>
                                         </td>
                                         <td class="text-primary">
-                                            ${uzytkownik.nazwisko}
+                                            ${user.nazwisko}
                                         </td>
                                     </tr>
                                     <tr>
@@ -87,7 +87,7 @@
                                             </strong>
                                         </td>
                                         <td class="text-primary">
-                                            ${uzytkownik.email}
+                                            ${user.email}
                                         </td>
                                     </tr>
                                     <tr>
@@ -98,7 +98,7 @@
                                             </strong>
                                         </td>
                                         <td class="text-primary">
-                                            ${uzytkownik.dataUtworzenia}
+                                            ${user.dataUtworzenia}
                                         </td>
                                     </tr>
                                     <tr>
@@ -109,7 +109,7 @@
                                             </strong>
                                         </td>
                                         <td class="text-primary">
-                                            ${uzytkownik.iloscPunktow}
+                                            ${user.iloscPunktow}
                                         </td>
                                     </tr>
                                     </tbody>

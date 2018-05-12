@@ -17,7 +17,7 @@
             <li><a href="kontakt.html">Kontakt</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="/register.jsp"><span class="glyphicon glyphicon-user"></span> Zarejestruj się</a></li>
+            <li><a href="/register"><span class="glyphicon glyphicon-user"></span> Zarejestruj się</a></li>
             <li><a href="logowanie.html"><span class="glyphicon glyphicon-log-in"></span> Logowanie</a></li>
         </ul>
     </div>
