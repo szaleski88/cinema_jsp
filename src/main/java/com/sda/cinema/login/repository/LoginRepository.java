@@ -3,8 +3,11 @@ package com.sda.cinema.login.repository;
 import com.sda.cinema.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
 
@@ -18,8 +21,19 @@ public class LoginRepository {
 
     public Optional<User> getUser(String login, String password) {
 
-        List<User> users = jdbcTemplate.queryForList(GET_USER, new String[]{login, password}, User.class);
-        return Optional.of(users.get(0));
+        User users = jdbcTemplate.query(GET_USER, new String[]{login, password}, new RowMapper<User>() {
+            @Override
+            public User mapRow(ResultSet resultSet, int i) throws SQLException {
+                User user = new User();
+                user.setFirstName(resultSet.getString("first_name"));
+                user.setLastName(resultSet.getString("last_name"));
+                user.setLogin(resultSet.getString("login"));
+                user.setPassword(resultSet.getString("password"));
+                user.setRegisterDate(resultSet.getString("registered_date"));
+                return user;
+            }
+        }).get(0);
+        return Optional.of(users);
 
     }
 }
