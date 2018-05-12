@@ -1,4 +1,6 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="com.sda.cinema.dto.ErrorMessages" %>
 <html lang="en">
 
 <head>
@@ -19,22 +21,33 @@
 <%@include file="navbar_not_logged.jsp"%>
 
 <h1 align="center">Rejestracja </h1>
+<c:if test="${errorMessage ne null}">
+    <c:choose>
+        <c:when test="${errorMessage eq ErrorMessages.VALIDATION_ERROR}">
+            <span class="error_message">Podczas rejestracji wystąpiły błędy walidacji</span>
+        </c:when>
+        <c:otherwise>
+            <span class="error_message">Wystąpił nieoczekiwany błąd</span>
+        </c:otherwise>
+    </c:choose>
+</c:if>
 
-<form name="registerForm">
+
+<form name="registerForm" method="POST" action="/register">
     <div class="container-fluid" id="loginContainer">
         <h2>Podaj swoje dane</h2>
 
         <div class="input-group">
             <input type="text" class="form-control" name="firstName" placeholder="Imię">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <span class="input-group-addon"><i class="glyphicon glyphicon-userDto"></i></span>
         </div>
         <div class="input-group">
             <input type="text" class="form-control" name="lastName" placeholder="Nazwisko">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <span class="input-group-addon"><i class="glyphicon glyphicon-userDto"></i></span>
         </div>
         <div class="input-group">
             <input type="text" class="form-control" name="login" placeholder="Login">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+            <span class="input-group-addon"><i class="glyphicon glyphicon-userDto"></i></span>
         </div>
         <div class="input-group">
             <input id="email" type="text" class="form-control" name="email" placeholder="e-mail">

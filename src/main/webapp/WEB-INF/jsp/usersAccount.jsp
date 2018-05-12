@@ -1,4 +1,4 @@
-<%@ page import="com.sda.cinema.model.User" %>
+<%@ page import="com.sda.cinema.dto.UserDto" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -55,17 +55,17 @@
                         </div>
                         <div class="col-md-6">
                             <div class="table-responsive">
-                                <table class="table table-condensed table-responsive table-user-information">
+                                <table class="table table-condensed table-responsive table-userDto-information">
                                     <tbody>
                                     <tr>
                                         <td>
                                             <strong>
-                                                <span class="glyphicon glyphicon-user  text-primary"></span>
+                                                <span class="glyphicon glyphicon-userDto  text-primary"></span>
                                                 Imię
                                             </strong>
                                         </td>
                                         <td class="text-primary">
-                                            ${user.imie}
+                                            ${userDto.imie}
                                         </td>
                                     </tr>
                                     <tr>
@@ -76,7 +76,7 @@
                                             </strong>
                                         </td>
                                         <td class="text-primary">
-                                            ${user.nazwisko}
+                                            ${userDto.nazwisko}
                                         </td>
                                     </tr>
                                     <tr>
@@ -87,7 +87,7 @@
                                             </strong>
                                         </td>
                                         <td class="text-primary">
-                                            ${user.email}
+                                            ${userDto.email}
                                         </td>
                                     </tr>
                                     <tr>
@@ -98,7 +98,7 @@
                                             </strong>
                                         </td>
                                         <td class="text-primary">
-                                            ${user.dataUtworzenia}
+                                            ${userDto.dataUtworzenia}
                                         </td>
                                     </tr>
                                     <tr>
@@ -109,7 +109,7 @@
                                             </strong>
                                         </td>
                                         <td class="text-primary">
-                                            ${user.iloscPunktow}
+                                            ${userDto.iloscPunktow}
                                         </td>
                                     </tr>
                                     </tbody>
