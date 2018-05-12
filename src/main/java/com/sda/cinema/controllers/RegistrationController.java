@@ -2,7 +2,6 @@ package com.sda.cinema.controllers;
 
 import com.sda.cinema.dto.ErrorMessages;
 import com.sda.cinema.dto.UserDto;
-import com.sda.cinema.model.User;
 import com.sda.cinema.service.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,8 +23,6 @@ public class RegistrationController {
         if(message != null){
             modelAndView.addObject("errorMessage", ErrorMessages.valueOf(message));
         }
-
-
         modelAndView.setViewName("register");
         return modelAndView;
     }
@@ -33,10 +30,9 @@ public class RegistrationController {
     @PostMapping(path = "/register")
     public String regiter(@ModelAttribute(name = "registerForm") UserDto userDto){
         if(!userDto.validateForm()){
-            return "redirect/register?message=VALIDATION_ERROR";
+            return "redirect:/register?message=VALIDATION_ERROR";
         }
         service.addUser(userDto);
-
         return "redirect:/";
     }
 

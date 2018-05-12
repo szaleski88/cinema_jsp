@@ -26,6 +26,7 @@ public class RegistrationService {
     private User getUser(UserDto userDto) {
        User user = new User();
        user.setEmail(userDto.getEmail());
+       user.setPassword(userDto.getPassword());
        user.setFirstName(userDto.getFirstName());
        user.setLastName(userDto.getLastName());
        user.setLogin(userDto.getLogin());
