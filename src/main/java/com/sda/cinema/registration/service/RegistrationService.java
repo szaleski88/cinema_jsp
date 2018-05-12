@@ -1,10 +1,10 @@
-package com.sda.cinema.service;
+package com.sda.cinema.registration.service;
 
 
-import com.sda.cinema.dto.ErrorMessages;
-import com.sda.cinema.dto.UserDto;
+import com.sda.cinema.registration.dto.ErrorMessages;
+import com.sda.cinema.registration.dto.UserDto;
 import com.sda.cinema.model.User;
-import com.sda.cinema.repository.RegistrationRepository;
+import com.sda.cinema.registration.repository.RegistrationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

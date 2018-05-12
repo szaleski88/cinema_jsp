@@ -1,4 +1,4 @@
-package com.sda.cinema.dto;
+package com.sda.cinema.registration.dto;
 
 import lombok.*;
 
