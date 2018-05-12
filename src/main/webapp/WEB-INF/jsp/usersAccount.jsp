@@ -1,4 +1,4 @@
-<%@ page import="com.sda.cinema.dto.UserDto" %>
+<%@ page import="com.sda.cinema.registration.dto.UserDto" %>
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>

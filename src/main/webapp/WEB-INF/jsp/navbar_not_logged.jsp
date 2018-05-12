@@ -18,7 +18,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
             <li><a href="/register"><span class="glyphicon glyphicon-userDto"></span> Zarejestruj się</a></li>
-            <li><a href="logowanie.html"><span class="glyphicon glyphicon-log-in"></span> Logowanie</a></li>
+            <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> Logowanie</a></li>
         </ul>
     </div>
 </nav>
