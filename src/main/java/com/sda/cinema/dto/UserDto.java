@@ -18,12 +18,32 @@ public class UserDto {
     private String amountOfPoints;
 
     public boolean validateForm() {
-        System.out.println(firstName);
-        return firstName.matches("[A-Za-złśżźćęąŁŚĄŻŹĆĘ]+")
-                && lastName.matches("[A-Za-złśżźćęąŁŚĄŻŹĆĘ]+")
-                && email.matches("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}")
-                && login.matches("[A-Za-z_0-9]{6,}")
-                && password.matches("[A-Za-z_0-9.!]{6,}")
-                && !password.equals(repeatedPassword);
+
+        if(!firstName.matches("[A-Za-złśżźćęąŁŚĄŻŹĆĘ]+")){
+            System.out.println("NIEPRAWIDLOWE IMIE\t" + firstName);
+            return false;
+        }
+        if(!lastName.matches("[A-Za-złśżźćęąŁŚĄŻŹĆĘ]+")){
+            System.out.println("nieprawidlowe nazwisko \t" + lastName);
+            return false;
+        }
+        if(!email.matches("[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}")) {
+            System.out.println("nieprawidlowy email \t" +email);
+            return false;
+        }
+
+        if(!login.matches("[A-Za-z_0-9]{6,}")) {
+            System.out.println("nieprawidlowe login\t" + login);
+            return false;
+        }
+        if(!password.matches("[A-Za-z_0-9.!]{6,}")){
+            System.out.println("nieprawidlowe haslo\t" + password);
+            return false;
+        }
+        if(!password.equals(repeatedPassword)){
+            System.out.println("nieprawidlowe powtorzone haslo" + password +"\t" + repeatedPassword);
+            return false;
+        }
+        return true;
     }
 }
