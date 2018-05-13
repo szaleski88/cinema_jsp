@@ -1,9 +1,7 @@
 package com.sda.cinema.login.controller;
 
 import com.sda.cinema.login.service.LoginService;
-import com.sda.cinema.registration.dto.ErrorMessages;
-import com.sda.cinema.registration.dto.UserDto;
-import com.sda.cinema.registration.service.RegistrationService;
+import com.sda.cinema.model.ErrorMessages;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,6 +31,6 @@ public class LoginController {
         if (!login.matches("[A-Za-z_0-9]{6,}") || !password.matches("[A-Za-z_0-9.!]{6,}")) {
             return "redirect:/login?message=VALIDATION_ERROR";
         }
-        return service.login(login, password) == null ? "redirect://login?message=VALIDATION_ERROR" : "redirect:/";
+        return service.login(login, password) == null ? "redirect:/login?message=VALIDATION_ERROR" : "redirect:/";
     }
 }

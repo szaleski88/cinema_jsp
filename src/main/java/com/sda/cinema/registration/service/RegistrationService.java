@@ -1,7 +1,7 @@
 package com.sda.cinema.registration.service;
 
 
-import com.sda.cinema.registration.dto.ErrorMessages;
+import com.sda.cinema.model.ErrorMessages;
 import com.sda.cinema.registration.dto.UserDto;
 import com.sda.cinema.model.User;
 import com.sda.cinema.registration.repository.RegistrationRepository;

@@ -21,7 +21,7 @@ public class LoginRepository {
 
     public Optional<User> getUser(String login, String password) {
 
-        User users = jdbcTemplate.query(GET_USER, new String[]{login, password}, new RowMapper<User>() {
+        List<User> query = jdbcTemplate.query(GET_USER, new String[]{login, password}, new RowMapper<User>() {
             @Override
             public User mapRow(ResultSet resultSet, int i) throws SQLException {
                 User user = new User();
@@ -32,8 +32,9 @@ public class LoginRepository {
                 user.setRegisterDate(resultSet.getString("registered_date"));
                 return user;
             }
-        }).get(0);
-        return Optional.of(users);
+        });
+
+        return !query.isEmpty() ? Optional.of(query.get(0)) : Optional.empty();
 
     }
 }
