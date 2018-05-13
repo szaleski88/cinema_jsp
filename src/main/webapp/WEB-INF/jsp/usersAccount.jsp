@@ -2,34 +2,16 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <!-- Your file css -->
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/cinema_style.css" type="text/css"/>
-    <%--<style>--%>
-        <%--* {--%>
-            <%--margin:0;--%>
-            <%--padding:0;--%>
-        <%--}--%>
-
-
-        <%--body {--%>
-            <%--background:#000000;--%>
-            <%--font-size:200%;--%>
-            <%--line-height:1em;--%>
-            <%--color:#858585;--%>
-        <%--}--%>
-    <%--</style>--%>
-
-    <title>JAKAS NAZWA KINA</title>
-</head>
+<%@ include file="head.jsp"%>
 <body>
-<!--Pasek nawigacyjny na gorze strony-->
-<%@ include file="navbar_logged_user.jsp"%>
-
+<c:choose>
+    <c:when test="${USER eq null}">
+        <%@ include file="navbar_not_logged.jsp" %>
+    </c:when>
+    <c:otherwise>
+        <%@ include file="navbar_logged_user.jsp" %>
+    </c:otherwise>
+</c:choose>
 <div class="container-fluid">
     <div class="row content">
         <div class="col-sm-2 sidenav">
@@ -65,7 +47,7 @@
                                             </strong>
                                         </td>
                                         <td class="text-primary">
-                                            ${userDto.imie}
+                                            ${USER.firstName}
                                         </td>
                                     </tr>
                                     <tr>
@@ -76,7 +58,7 @@
                                             </strong>
                                         </td>
                                         <td class="text-primary">
-                                            ${userDto.nazwisko}
+                                            ${USER.lastName}
                                         </td>
                                     </tr>
                                     <tr>
@@ -87,7 +69,7 @@
                                             </strong>
                                         </td>
                                         <td class="text-primary">
-                                            ${userDto.email}
+                                            ${USER.email}
                                         </td>
                                     </tr>
                                     <tr>
@@ -98,7 +80,7 @@
                                             </strong>
                                         </td>
                                         <td class="text-primary">
-                                            ${userDto.dataUtworzenia}
+                                            ${USER.registerDate}
                                         </td>
                                     </tr>
                                     <tr>
@@ -109,7 +91,7 @@
                                             </strong>
                                         </td>
                                         <td class="text-primary">
-                                            ${userDto.iloscPunktow}
+                                            ${USER.amountOfPoints}
                                         </td>
                                     </tr>
                                     </tbody>
