@@ -30,11 +30,10 @@ public class RegistrationController {
     @PostMapping(path = "/register")
     public String regiter(@ModelAttribute(name = "registerForm") UserDto userDto){
         if(!userDto.validateForm()){
-            return "redirect:/register?message=VALIDATION_ERROR";
+            String message = userDto.getMessage();
+            return "redirect:/register?message="+message;
         }
         service.addUser(userDto);
         return "redirect:/";
     }
-
-
 }
