@@ -23,8 +23,23 @@
 <h1 align="center">Rejestracja </h1>
 <c:if test="${errorMessage ne null}">
     <c:choose>
-        <c:when test="${errorMessage eq ErrorMessages.VALIDATION_ERROR}">
-            <span class="error_message">Podczas rejestracji wystąpiły błędy walidacji</span>
+        <c:when test="${errorMessage eq ErrorMessages.INCORRECT_NAME}">
+            <span class="error_message">Niepoprawne imię</span>
+        </c:when>
+        <c:when test="${errorMessage eq ErrorMessages.INCORRECT_SURNAME}">
+            <span class="error_message">Niepoprawne nazwisko</span>
+        </c:when>
+        <c:when test="${errorMessage eq ErrorMessages.INCORRECT_EMAIL}">
+             <span class="error_message">Niepoprawny email</span>
+        </c:when>
+        <c:when test="${errorMessage eq ErrorMessages.INCORRECT_LOGIN}">
+            <span class="error_message">Niepoprawny login</span>
+        </c:when>
+        <c:when test="${errorMessage eq ErrorMessages.INCORRECT_PASSWORD}">
+            <span class="error_message">Niepoprawne hasło</span>
+        </c:when>
+        <c:when test="${errorMessage eq ErrorMessages.INCORRECT_REPEATED_PASSWORD}">
+            <span class="error_message">Niepoprawne powtórzone hasło</span>
         </c:when>
         <c:otherwise>
             <span class="error_message">Wystąpił nieoczekiwany błąd</span>
