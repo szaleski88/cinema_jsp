@@ -9,13 +9,13 @@
 <nav class="navbar navbar-inverse">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="${pageContext.request.contextPath}/WEB-INF/cinema_main.html"><span class="cinema_name">(super nazwa)</span></a>
+            <a class="navbar-brand" href="/index"><span class="cinema_name">Kino PROSIACZEK</span></a>
         </div>
         <ul class="nav navbar-nav">
-            <li class="active"><a href="${pageContext.request.contextPath}/WEB-INF/cinema_main.html">Strona Główna</a></li>
+            <li class="active"><a href="/index">Strona Główna</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="konto"><span class="glyphicon glyphicon-userDto"></span> <strong>${userDto.login}</strong>
+            <li><a href="/account"><span class="glyphicon glyphicon-userDto"></span> <strong>${userDto.login}</strong>
             </a></li>
         </ul>
     </div>

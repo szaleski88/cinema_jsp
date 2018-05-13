@@ -14,7 +14,7 @@
 <!--główny kontener tresci-->
 <div class="container-fluid">
     <div class="jumbotron banner">
-        <h1>Witaj w kinie <span class="cinema_name">(super nazwa)</span></h1>
+        <h1>Witaj w kinie <span class="cinema_name">PROSIACZEK</span></h1>
         <p>projekt SDA, polskie literki: żźłóąęść</p>
     </div>
 

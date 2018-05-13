@@ -1,54 +1,45 @@
-<!DOCTYPE html>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="com.sda.cinema.model.ErrorMessages" %>
 
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Your file css -->
     <link rel="stylesheet" href="css/cinema_style.css"/>
-
     <title>Dane osobowe</title>
-
 </head>
 
 <body>
 
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="cinema_main.html"><span class="cinema_name">(super nazwa)</span></a>
-        </div>
-        <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Strona Główna</a></li>
-            <li><a href="repertuar.html">Repertuar</a></li>
-            <li><a href="kontakt.html">Kontakt</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="jsp/register.jsp"><span class="glyphicon glyphicon-userDto"></span> Zarejestruj się</a></li>
-            <li><a href="jsp/login.jsp"><span class="glyphicon glyphicon-log-in"></span> Logowanie</a></li>
-        </ul>
-    </div>
-</nav>
-
+<%@ include file="navbar_not_logged.jsp"%>
 
 <h1 align="center">Dodaj nowy film</h1>
 
-<form>
-    <div class="container-fluid" id="loginContainer">
+<form name="addMovieForm" method="post" action="/addMovie">
+    <div class="container-fluid" id="addFilmContainer">
         <h2>Podaj dane filmu</h2>
 
         <div class="input-group">
-            <input type="text" class="form-control" name="imie" placeholder="Tytuł">
+            <input type="text" class="form-control" name="title" placeholder="Tytuł">
             <span class="input-group-addon"><i class="glyphicon glyphicon-facetime-video"></i></span>
         </div>
 
-        <div class="input-group">
+        <div class="input-group" name="genre">
+            <%--tu lista z obiektu genre--%>
+
             <select class="form-control">
+                <c:forEach items="${imiona}" var="imie">
+                    <tr>
+                        <td>
+                                ${imie}
+                        </td>
+                    </tr>
+                </c:forEach>
                 <option>Komedia</option>
                 <option>Dramat</option>
                 <option>Dokument</option>
@@ -57,29 +48,28 @@
         </div>
 
         <div class="input-group">
-            <input type="textarea" class="form-control" name="opis" placeholder="Opis filmu">
+            <input type="textarea" class="form-control" name="description" placeholder="Opis filmu">
             <span class="input-group-addon"><i class="glyphicon glyphicon-info-sign"></i></span>
         </div>
 
 
         <div class="input-group">
-            <input type="text" class="form-control" name="rokProdukcji" placeholder="Rok produkcji">
+            <input type="text" class="form-control" name="year" placeholder="Rok produkcji">
             <span class="input-group-addon"><i class="glyphicon glyphicon-sound-dolby"></i></span>
         </div>
 
         <div class="input-group">
-            <input type="text" class="form-control" name="czasTrwania" placeholder="Czas trwania">
+            <input type="text" class="form-control" name="duration" placeholder="Czas trwania">
             <span class="input-group-addon"><i class="glyphicon glyphicon-time"></i></span>
         </div>
 
 
         <div class="input-group">
-            <input type="textarea" class="form-control" name="obsada" placeholder="Obsada">
+            <input type="textarea" class="form-control" name="cast" placeholder="Obsada">
             <span class="input-group-addon"><i class="glyphicon glyphicon-userDto"></i></span>
         </div>
 
-
-        <button id="Submitbutton" type="submit">Dodaj film</button>
+        <button id="loginbutton" type="submit">Dodaj film</button>
     </div>
 </form>
 
