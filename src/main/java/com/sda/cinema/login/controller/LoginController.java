@@ -1,5 +1,6 @@
 package com.sda.cinema.login.controller;
 
+import com.sda.cinema.login.dto.UserDto;
 import com.sda.cinema.login.service.LoginService;
 import com.sda.cinema.model.ErrorMessages;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 @Controller
 public class LoginController {
@@ -27,10 +31,26 @@ public class LoginController {
     }
 
     @PostMapping(path = "/login")
-    public String login(@ModelAttribute(name = "login") String login, @ModelAttribute(name = "password") String password) {
+    public String login(@ModelAttribute(name = "login") String login,
+                        @ModelAttribute(name = "password") String password,
+                        HttpServletRequest request) {
         if (!login.matches("[A-Za-z_0-9]{6,}") || !password.matches("[A-Za-z_0-9.!]{6,}")) {
             return "redirect:/login?message=VALIDATION_ERROR";
         }
-        return service.login(login, password) == null ? "redirect:/login?message=VALIDATION_ERROR" : "redirect:/";
+        UserDto userDto = service.login(login, password);
+        if (userDto == null) {
+            return "redirect:/login?message=VALIDATION_ERROR";
+        }else {
+        createSession(userDto, request);
+        return "redirect:/";
+        }
+
+    }
+
+    private void createSession(UserDto userDto, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        session.setAttribute("USER", userDto);
+        return;
+
     }
 }
