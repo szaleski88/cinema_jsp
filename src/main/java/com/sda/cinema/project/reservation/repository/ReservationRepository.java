@@ -10,10 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 @Repository
 public class ReservationRepository {
@@ -31,8 +28,7 @@ public class ReservationRepository {
     private JdbcTemplate jdbcTemplate;
 
     public List<Movie> getMoviesByDate(String date) {
-        List<Seance> seanceList = getSeancesByDate(date);
-        Map<Integer, List<Seance>> mapMoviesSeances = createMapMovieSeances(seanceList);
+
 
         List<Movie> movies = jdbcTemplate.query(GET_MOVIES_BY_DATE, new String[]{date}, new RowMapper<Movie>() {
             @Override
@@ -42,9 +38,9 @@ public class ReservationRepository {
                 movie.setTitle(rs.getString("title"));
                 movie.setMovieGenre(MovieGenre.valueOf(rs.getString("category").toUpperCase()));
                 movie.setMovieDescription(rs.getString("description"));
-                movie.setListOfActors(rs.getString("movie_cast"));
+                movie.setActors(rs.getString("movie_cast"));
                 movie.setYearOfMovieProduction(Integer.toString(rs.getInt("date_production")));
-                movie.setListOfSeance(mapMoviesSeances.get(rs.getInt("id")));
+
 
                 return movie;
             }
@@ -53,7 +49,7 @@ public class ReservationRepository {
     }
 
 
-    private List<Seance> getSeancesByDate(String date) {
+    public List<Seance> getSeancesByDate(String date) {
         List<Seance> seanceList = jdbcTemplate.query(GET_SEANCES_BY_DATE, new String[]{date}, new RowMapper<Seance>() {
             @Override
             public Seance mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -70,18 +66,5 @@ public class ReservationRepository {
         return null;
     }
 
-    public Map<Integer, List<Seance>> createMapMovieSeances(List<Seance> seances) {
-        Map<Integer, List<Seance>> mapMovieSeances = new HashMap<>();
-        for (Seance seance : seances) {
-            if (mapMovieSeances.containsKey(seance.getMovieId())) {
-                mapMovieSeances.get(seance.getMovieId()).add(seance);
-                mapMovieSeances.put(seance.getMovieId(), mapMovieSeances.get(seance.getMovieId()));
-            } else {
-                List<Seance> seanceList = new ArrayList<>();
-                seanceList.add(seance);
-                mapMovieSeances.put(seance.getMovieId(), seanceList);
-            }
-        }
-        return mapMovieSeances;
-    }
+
 }

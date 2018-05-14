@@ -16,7 +16,6 @@ public class Movie {
     private MovieGenre movieGenre;
     private String movieDescription;
     private String yearOfMovieProduction;
-    private String interval;
-    private String listOfActors;
+    private String actors;
     private List<Seance> listOfSeance;
 }
