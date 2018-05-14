@@ -1,4 +1,4 @@
-package com.sda.cinema.registration.repository;
+package com.sda.cinema.project.registration.repository;
 
 import com.sda.cinema.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
