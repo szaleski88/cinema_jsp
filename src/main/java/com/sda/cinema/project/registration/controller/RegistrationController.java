@@ -1,8 +1,8 @@
-package com.sda.cinema.registration.controller;
+package com.sda.cinema.project.registration.controller;
 
 import com.sda.cinema.model.ErrorMessages;
-import com.sda.cinema.registration.dto.UserDto;
-import com.sda.cinema.registration.service.RegistrationService;
+import com.sda.cinema.project.registration.dto.UserDto;
+import com.sda.cinema.project.registration.service.RegistrationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

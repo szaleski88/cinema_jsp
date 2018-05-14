@@ -15,11 +15,11 @@ public class UserDto {
     private String lastName;
     private String email;
     private String registerDate;
-    private String amountOfPoints;
+    private String loyaltyPoints;
 
     public boolean validateForm(){
 
-        if(!login.matches("[A-Za-z_0-9]{6,}")) {
+        if(!login.matches("[A-Za-z_0-9]{5,}")) {
             System.out.println("nieprawidlowe login\t" + login);
             return false;
         }
