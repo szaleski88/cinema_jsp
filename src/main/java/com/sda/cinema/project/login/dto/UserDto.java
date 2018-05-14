@@ -1,4 +1,4 @@
-package com.sda.cinema.login.dto;
+package com.sda.cinema.project.login.dto;
 
 
 import lombok.*;

@@ -1,4 +1,4 @@
-package com.sda.cinema.login.repository;
+package com.sda.cinema.project.login.repository;
 
 import com.sda.cinema.model.User;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,7 +1,7 @@
-package com.sda.cinema.login.controller;
+package com.sda.cinema.project.login.controller;
 
-import com.sda.cinema.login.dto.UserDto;
-import com.sda.cinema.login.service.LoginService;
+import com.sda.cinema.project.login.dto.UserDto;
+import com.sda.cinema.project.login.service.LoginService;
 import com.sda.cinema.model.ErrorMessages;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

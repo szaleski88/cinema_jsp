@@ -1,7 +1,7 @@
-package com.sda.cinema.login.service;
+package com.sda.cinema.project.login.service;
 
-import com.sda.cinema.login.dto.UserDto;
-import com.sda.cinema.login.repository.LoginRepository;
+import com.sda.cinema.project.login.dto.UserDto;
+import com.sda.cinema.project.login.repository.LoginRepository;
 import com.sda.cinema.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
