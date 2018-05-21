@@ -57,13 +57,42 @@
 
 </div>
 
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+
+<table class="table table-striped table-light">
+    <thead>
+    <tr>
+        <th scope="col">Tytuł</th>
+        <th scope="col">Seansy</th>
+    </tr>
+    </thead>
+    <tbody>
+    <c:choose>
+        <c:when test="${listOfMovies ne null}">
+
+            <c:forEach items="${listOfMovies}" var="movie">
+                <tr>
+                    <th scope="row">${movie.getTitle()}</th>
+                    <c:forEach items="${movie.getListOfSeance()}" var="seance">
+                        <td>${seance.getDataStartTime()}</td>
+                    </c:forEach>
+                </tr>
+
+            </c:forEach>
+        </c:when>
+    </c:choose>
+    </tbody>
+</table>
+
 
 <script>
-    $(document).ready(function(){
-        var date_input=$('input[name="date"]'); //our date input has the name "date"
-        var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+    $(document).ready(function () {
+        var date_input = $('input[name="date"]'); //our date input has the name "date"
+        var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
         date_input.datepicker({
             format: 'mm/dd/yyyy',
             container: container,
