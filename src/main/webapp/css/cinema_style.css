@@ -91,3 +91,7 @@ button:hover {
     display: flex;
     align-items: center;
 }
+
+.h4 {
+    color: black;
+}

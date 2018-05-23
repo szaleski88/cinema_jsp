@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="css/cinema_style.css"/>
     <title>Repertuar</title>
     <script src="http://code.jquery.com/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 <body>
@@ -28,7 +30,7 @@
         <%@ include file="navbar_logged_user.jsp" %>
     </c:otherwise>
 </c:choose>
-
+<%@ include file="reserve_modal.jsp" %>
 
 <h2>Repertuar</h2>
 <div>
@@ -78,7 +80,17 @@
                 <tr>
                     <th scope="row">${movie.getTitle()}</th>
                     <c:forEach items="${movie.getListOfSeance()}" var="seance">
-                        <td>${seance.getDataStartTime()}</td>
+
+                        <%--<td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" >${seance.getDataStartTime()}</button></td>--%>
+                        <%--<td><a href="#myModal" data-toggle="modal" movie-title="${movie.title}" movie-seance="${seance.getDataStartTime()}">${seance.getDataStartTime()}</a></td>--%>
+
+                        <%--<td><button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal" ></button></td>--%>
+                        <td><a class="btn btn-primary announce"
+                               data-toggle="modal"
+                               data-title="${movie.title}"
+                               data-actors="${movie.actors}"
+                               data-description="${movie.movieDescription}"
+                                data-start="${seance.getDataStartTime()}">${seance.getDataStartTime()}</a></td>
                     </c:forEach>
                 </tr>
 
