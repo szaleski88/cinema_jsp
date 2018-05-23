@@ -32,31 +32,29 @@
 </c:choose>
 <%@ include file="reserve_modal.jsp" %>
 
-<h2>Repertuar</h2>
-<div>
+<div id="container">
+    <h2>Repertuar</h2>
 
+    <div>
+        <!-- Form code begins -->
+        <form method="get" name="selectDate" action="/repertoire">
+            <div class="form-group"> <!-- Date input -->
+                <h3>Wybierz datę:</h3>
+                <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+            </div>
+            <div class="form-group"> <!-- Submit button -->
+                <button class="btn btn-primary " name="submit" type="submit">Submit</button>
+            </div>
+        </form>
+        <!-- Form code ends -->
 
-    <!-- Form code begins -->
-    <form method="get" name="selectDate" action="/repertoire">
-        <div class="form-group"> <!-- Date input -->
-            <label class="control-label" for="date">Date</label>
-            <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
-        </div>
-        <div class="form-group"> <!-- Submit button -->
-            <button class="btn btn-primary " name="submit" type="submit">Submit</button>
-        </div>
-    </form>
-    <!-- Form code ends -->
+        <c:choose>
+            <c:when test="${datePicked ne null}">
+                <h2>wybrana data: ${datePicked}</h2>
+            </c:when>
+        </c:choose>
 
-    <c:choose>
-        <c:when test="${datePicked eq null}">
-            <h1>wybierz datę</h1>
-        </c:when>
-        <c:otherwise>
-            <h1>wybrana data: ${datePicked}</h1>
-        </c:otherwise>
-    </c:choose>
-
+    </div>
 </div>
 
 <script type="text/javascript"

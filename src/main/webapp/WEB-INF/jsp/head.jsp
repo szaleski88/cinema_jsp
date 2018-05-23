@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Your file css -->
-    <link rel="stylesheet" href="css/cinema_style.css"/>
+    <link rel="stylesheet" href="/css/cinema_style.css"/>
     <title>Kino Prosiaczek</title>
 </head>
+    <div id="background-image"></div>
