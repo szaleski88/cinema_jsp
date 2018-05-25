@@ -15,21 +15,17 @@ import java.util.List;
 @Repository
 public class ReservationRepository {
     private static final String GET_MOVIES_BY_DATE =
-            "select m.*, array_agg(s.id) from movies m \n" +
-                    "join seances s on s.id_movie = m.id\n" +
-                    "where s.data_start = ?\n" +
-                    "group by m.id, m.title, m.category, m.time_duration, m.description, m.movie_cast, m.date_production";
+            "SELECT m.*, array_agg(s.id) FROM movies m JOIN seances s ON s.id_movie = m.id WHERE s.data_start = ? " +
+                    "GROUP BY m.id, m.title, m.category, m.time_duration, m.description, m.movie_cast, m.date_production";
 
-    private static final String GET_SEANCES_BY_DATE =
-            "select * from seances where data_start = ?";
+    private static final String GET_SEANCES_BY_DATE = "SELECT * FROM seances WHERE data_start = ?;";
 
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
     public List<Movie> getMoviesByDate(String date) {
-
-
+        System.out.println(date);
         List<Movie> movies = jdbcTemplate.query(GET_MOVIES_BY_DATE, new String[]{date}, new RowMapper<Movie>() {
             @Override
             public Movie mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -40,8 +36,6 @@ public class ReservationRepository {
                 movie.setMovieDescription(rs.getString("description"));
                 movie.setActors(rs.getString("movie_cast"));
                 movie.setYearOfMovieProduction(Integer.toString(rs.getInt("date_production")));
-
-
                 return movie;
             }
         });
@@ -50,7 +44,9 @@ public class ReservationRepository {
 
 
     public List<Seance> getSeancesByDate(String date) {
-        List<Seance> seanceList = jdbcTemplate.query(GET_SEANCES_BY_DATE, new String[]{date}, new RowMapper<Seance>() {
+
+        System.out.println(date);
+        return jdbcTemplate.query(GET_SEANCES_BY_DATE, new String[]{date}, new RowMapper<Seance>() {
             @Override
             public Seance mapRow(ResultSet rs, int rowNum) throws SQLException {
 
@@ -63,8 +59,12 @@ public class ReservationRepository {
                 return seance;
             }
         });
-        return null;
     }
 
+
+    public static void main(String[] args) {
+        ReservationRepository rr = new ReservationRepository();
+        List<Movie> moviesByDate = rr.getMoviesByDate("05-13-2018");
+    }
 
 }

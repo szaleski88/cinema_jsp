@@ -1,5 +1,6 @@
 package com.sda.cinema.project.reservation.controller;
 
+import com.sda.cinema.project.reservation.dto.MovieDto;
 import com.sda.cinema.project.reservation.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 public class ReservationController {
@@ -28,6 +30,8 @@ public class ReservationController {
 
         if (date != null) {
             modelAndView.addObject("datePicked", date);
+            List<MovieDto> moviesDtosForDate = reservationService.getMoviesDtosForDate(date.replace("/", "-"));
+            modelAndView.addObject("listOfMovies", moviesDtosForDate);
         }
         return modelAndView;
     }

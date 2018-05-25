@@ -3,6 +3,7 @@
 <html>
 <%@ include file="head.jsp"%>
 <body>
+<div id="extraLayer">
 <c:choose>
     <c:when test="${USER eq null}">
         <%@ include file="navbar_not_logged.jsp" %>
@@ -18,13 +19,8 @@
         <p>projekt SDA, polskie literki: żźłóąęść</p>
     </div>
 
-
-    <p>This is some text.</p>
-    <p>This is another text.</p>
-
-
 </div>
 
-
+</div>
 </body>
 </html>
